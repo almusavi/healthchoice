@@ -27,8 +27,8 @@ class CreateProviders < ActiveRecord::Migration[5.0]
     	t.string :mailingcity
     	t.string :mailingstate
     	t.string :mailingzip
-    	t.integer :maillatitude
-    	t.integer :maillongitude
+    	t.float :maillatitude
+    	t.float :maillongitude
     	t.string :email
     	t.string :otheremail
     	t.string :description
@@ -41,6 +41,7 @@ class CreateProviders < ActiveRecord::Migration[5.0]
     	t.string :treatmentphilosophy
     	t.string :mailingstreet
     	t.string :accountname
+    	t.string :distance
       t.timestamps
     end
   end
