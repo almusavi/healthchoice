@@ -7,14 +7,16 @@
 
 <div class="indexpage">
 <div>
-	<p>SEARCH RESULTS FOR: <%= @search %></p>
+	<p class="searchresults">SEARCH RESULTS FOR: <%= @search %></p>
 	<% @providers.each do |provider| %>
 		<div class="card-block eachprovider cardsize">
 			<div class="avatar">
 				<img src="/images/avatar.jpg">
 			</div>
 			<div>
-				<span class="name"><%= provider.firstname + " " + provider.lastname %></span><br>
+			<span class = "name">
+				<a  href="/providers/<%= provider.id %>"><%= provider.firstname + " " + provider.lastname %></a><br>
+				</span>
 				<i class="title"><%= provider.title %></i>
 				<p><%= provider.accountname %></p>
 				<span class="fa fa-map-marker"><%= provider.distance %></span>
