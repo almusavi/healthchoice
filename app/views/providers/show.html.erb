@@ -136,3 +136,34 @@
 		}
 	})(marker));
 </script>
+
+<h1 class="name"> Qualifications and Experience</h1>
+<div class="qualifications">
+    <div class="qualitysubject">Practice Name</div>
+    <div class="qualities"><%= @provider.accountname %></div>
+</div>
+<div class="qualifications">
+    <div class="qualitysubject">Phone</div>
+    <div class="qualities"><%= @provider.crlphone %></div>
+</div>
+<div class="qualifications">
+    <div class="qualitysubject">Fax</div>
+    <div class="qualities"><%= @provider.accountfax %></div>
+</div>
+<div class="qualifications">
+    <div class="qualitysubject">Website</div>
+    <div class="qualities"><%= @provider.website %></div>
+</div>
+<div class="qualifications">
+    <div class="qualitysubject">Level of Care Provided</div>
+    <div class="qualities"><%= @provider.locprovided %></div>
+</div>
+<div class="qualifications">
+    <div class="qualitysubject">Patient Age Bracket</div>
+    <div class="qualities">
+    <% @provider.patientagebracket.split(";").each do |patientagebracket|%>
+    <%= patientagebracket %>
+    <br>
+    <% end %>   
+    </div>
+</div>
