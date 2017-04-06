@@ -53,6 +53,7 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
+    geocoder (1.4.3)
     geokit (1.11.0)
     geokit-rails (2.2.0)
       geokit (~> 1.5)
@@ -162,6 +163,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
+  geocoder
   geokit-rails
   jbuilder (~> 2.5)
   jquery-rails

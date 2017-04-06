@@ -3,7 +3,6 @@ require 'date'
 Provider.delete_all
 csv = SmarterCSV.process('providers.csv')
 csv.each do |row|
-	p row
 	Provider.create!(row.to_hash)
 	# Provider.create!(accountid: row['accountid'], crlauditdate: row['crlauditdate'], website: row['website'], accountrating: row['accountrating'], accountphone: row['accountphone'], accountfax: row['accountfax'], billingstreet: row['billingstreet'], billingaddressline3: row['billingaddressline3'], billingcity: row['billingcity'], billingzip: row['billingzip'], billingstate: row['billingstate'], billlatitude: row['billlatitude'], billlongitude: row['billlongitude'], contactid: row['contactid'], locprovided: row['locprovided'], firstname: row['firstname'], lastname: row['lastname'], title: row['title'], credentials: row['credentials'], phone: row['phone'], crlphone: row['crlphone'], formerLOH: row['formerLOH'], mailingaddressline1: row['mailingaddressline1'], mailingcity: row['mailingcity'], mailingstate: row['mailingstate'], mailingzip: row['mailingzip'], maillatitude: row['maillatitude'], maillongitude: row['maillongitude'], email: row['email'], otheremail: row['otheremail'], description: row['description'], languages: row['languages'], patientagebracket: row['patientagebracket'], insurancepanels: row['insurancepanels'], specialtyareas: row['specialtyareas'], treatmentmodality: row['treatmentmodality'], treatmentorientation: row['treatmentorientation'], treatmentphilosophy: row['treatmentphilosophy'], mailingstreet: row['mailingstreet'], accountname: row['accountname'])
 

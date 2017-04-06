@@ -7,11 +7,99 @@
 	background-image: url("../images/landingbg.jpg");
 }
 
+.cardsize {
+	width: 45vw;
+}
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: #c4c4c4
+}
+
+.nobottommargin{
+	margin-bottom: 0;
+}
+
+.indexpage {
+	display: flex;
+}
+#map {
+  height: 100%;
+  overflow: visible;
+}
+
+.map-postion {
+	width: 100%;
+	height: 65.85%;
+	position: fixed;
+	display: block;
+	z-index: 10;
+}
+
+ #map #infowindow-content {
+ 	display: inline;
+ }
+
+   #infowindow-content .title {
+          font-weight: bold;
+        }
+
+        #infowindow-content {
+          display: none;
+        }
+
+.showpage {
+	margin-top: 0px;
+	display: flex;
+	background-color: white;
+	font-family: "poppins";
+}
+.eachprovider {
+	margin: 10px;
+	padding: 10px;
+	/*border-style: solid;
+	border-width: 2px;
+	border-color: black;*/
+	display: flex;
+	background-color: #ffffff
+}
+
+.searchresults {
+	font-family: "poppins";
+	padding: 10px;
+	font-size: 25px;
+}
+.name {
+	font-family: "poppins";
+ 	font-weight: bold;
+ 	font-size: 20px;
+ 	color: black;
+}
+
+.citystate {
+	font-family: "poppins";
+ 	font-size: 15px;
+ 	color: black;
+}
+.title {
+	font-family: "poppins";
+ 	font-size: 15px;
+ 	color: black;
+}
+.avatar {
+	margin-right: 30px;
+}
 footer{
 	background-color: black;
 	padding: 25px;
 	display: flex;
 	justify-content: center;
+}
+
+.will_paginate {
+align-items: center;
 }
 .homepageheight {
 	display: block;
@@ -36,3 +124,10 @@ height: 100px;
  input{
  	padding-left: 10px;
  }
+
+.pagination { padding: 3px; margin: 3px; } 
+.pagination a { font-family: "poppins"; padding: 4px 7px 4px 7px; background-color: #ffffff; text-decoration: none; color: #000000; } 
+.pagination a:hover, 
+.pagination a:active { border: 1px solid #000099; color: #000; } 
+.pagination span.current { padding: 4px 7px 4px 7px; margin: 2px; border: 1px solid #000099; font-weight: bold; background-color: #000099; color: #FFF; } 
+.pagination span.disabled { padding: 4px 7px 4px 7px; margin: 2px; border: 1px solid #eee; color: #ddd; }

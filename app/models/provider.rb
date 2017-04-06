@@ -4,9 +4,7 @@ class Provider < ApplicationRecord
 
 	def self.search(search)
 		if search
-			providers = self.within(5, :origin => search)
-			p providers# self.where('mailingcity LIKE ?', "%#{search}%")
-	
+			providers = self.within(5, :origin => search)	
 		else
 			self.all
 		end
