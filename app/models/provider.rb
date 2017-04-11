@@ -9,4 +9,5 @@ class Provider < ApplicationRecord
 			self.all
 		end
 	end
+
 end

@@ -12,7 +12,7 @@
 	</div>
 
 	<div>
-		<span class="name"><%= @provider.firstname + " " + @provider.lastname %></span>
+		<span class="bigname"><%= @provider.firstname + " " + @provider.lastname %></span>
 		<br>
 		<i class="title"><%= @provider.title %></i>
 		<br>
@@ -20,6 +20,8 @@
 	</div>
 
 </div>
+<% @location = [] %>
+<% @location << [@provider.accountname.strip, @provider.maillatitude, @provider.maillongitude] %>
 
 <div class="map-position">
 <div id="map" style="width: 100%; height: 150px;"></div>
@@ -122,20 +124,24 @@
 	      center: new google.maps.LatLng(<%= @provider.maillatitude %>, <%= @provider.maillongitude%>),
 	      mapTypeId: google.maps.MapTypeId.ROADMAP
 	    });
+        var locations = <%= raw @location %>
 		var infowindow = new google.maps.InfoWindow();
 		var marker;
 
 		marker = new google.maps.Marker({
-			position: new google.maps.LatLng(<%= @provider.maillatitude  %>, <%= @provider.maillongitude%>), map: map
-		})
+        position: new google.maps.LatLng(locations[0][1], locations[0][2]),
+        map: map
+      });
 
 		google.maps.event.addListener(marker, 'click', (function(marker, i) {
 			return function() {
-			infowindow.setContent(<%= @provider.maillatitude  %>);
+			infowindow.setContent(locations[0][0]);
 			infowindow.open(map, marker);
 		}
 	})(marker));
 </script>
+
+<div class="qualcontainer">
 
 <h1 class="name"> Qualifications and Experience</h1>
 <div class="qualifications">
@@ -161,9 +167,79 @@
 <div class="qualifications">
     <div class="qualitysubject">Patient Age Bracket</div>
     <div class="qualities">
+    <% unless @provider.patientagebracket.nil? %>
     <% @provider.patientagebracket.split(";").each do |patientagebracket|%>
     <%= patientagebracket %>
     <br>
-    <% end %>   
+    <% end %><% end
+     %>   
     </div>
 </div>
+<div class="qualifications">
+    <div class="qualitysubject">Languages</div>
+    <div class="qualities">
+    <% unless @provider.languages.nil? %>
+<% @provider.languages.split(";").each do |languages|%>
+    <%= languages %>
+    <br>
+    <% end %>  
+    <% end %>
+    </div>
+</div>
+<div class="qualifications">
+    <div class="qualitysubject">Insurane Panels</div>
+    <div class="qualities">
+    <% unless @provider.insurancepanels.nil? %>
+<% @provider.insurancepanels.split(";").each do |insurance|%>
+    <%= insurance %>
+    <br>
+    <% end %>  
+    <% end %>
+    </div>
+</div>
+<div class="qualifications">
+    <div class="qualitysubject">Specialty Areas</div>
+    <div class="qualities">
+    <% unless @provider.specialtyareas.nil? %>
+<% @provider.specialtyareas.split(";").each do |specialty|%>
+    <%= specialty %>
+    <br>
+    <% end %>  
+    <% end %>
+    </div>
+</div>
+<div class="qualifications">
+    <div class="qualitysubject">Treatment Modality</div>
+    <div class="qualities">
+    <% unless @provider.treatmentmodality.nil? %>
+<% @provider.treatmentmodality.split(";").each do |modality|%>
+    <%= modality %>
+    <br>
+    <% end %>  
+    <% end %>
+    </div>
+</div>
+<div class="qualifications">
+    <div class="qualitysubject">Treatment Orientation</div>
+    <div class="qualities">
+    <% unless @provider.treatmentorientation.nil? %>
+<% @provider.treatmentorientation.split(";").each do |treatment|%>
+    <%= treatment %>
+    <br>
+    <% end %>
+    <% end %>  
+    </div>
+</div>
+<div class="qualifications">
+    <div class="qualitysubject">Treatment Philosophy</div>
+    <div class="qualities">
+    <% unless @provider.treatmentphilosophy.nil? %>
+        <% @provider.treatmentphilosophy.split(";").each do |treatment|%>
+            <%= treatment %>
+            <br>
+        <% end %> 
+    <% end %> 
+    </div>
+</div>
+</div>
+
