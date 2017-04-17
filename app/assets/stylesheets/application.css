@@ -108,7 +108,7 @@ body {
 	border-width: 2px;
 	border-color: black;*/
 	display: flex;
-	background-color: #ffffff
+	background-color: #ffffff;
 }
 .providercard {
 	overflow: auto;
