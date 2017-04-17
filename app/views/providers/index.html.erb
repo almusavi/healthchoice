@@ -6,15 +6,19 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.3.7/jquery.jscroll.js"></script>
 </head>
 
-<div class="map-position1">
-<div id="map" style="width: 100%; height: 250px;"></div>
+<!-- <div class="map-position1"></div>
+    <div id="map" style="width: 100%; height: 300px;"></div>
+</div> -->
 
 <div class="indexpage">
-
 <div>
+<p>filters</p>
+</div>
+
+<div class="providercard">
 	<p class="searchresults">SEARCH RESULTS FOR: <%= @search %></p>
 	<% @providers.each do |provider| %>
-		<div class="card-block eachprovider cardsize">
+		<div class=" eachprovider cardsize">
 			<div class="avatar">
 				<img src="/images/avatar.jpg">
 			</div>
@@ -34,7 +38,7 @@
 				<form action="mailto:<%= provider.email %>" method="post" enctype="text/plain">
 				<input type="image" src="/images/phone-outline.png" border="0" alt="Submit">
 				<% @locations << [provider.accountname.strip, provider.maillatitude, provider.maillongitude] %>
-
+</form>
 			</div>
 		</div>
 		<br>
@@ -42,6 +46,16 @@
 	<span class = "will_paginate"> <%= will_paginate @providers %> </span>
 	<br>
 </div>
+<div >
+
+<div class="map-position">
+    <div id="map"></div>
+</div>
+</div>
+    
+</div>
+
+hello
 <div>
 
 
