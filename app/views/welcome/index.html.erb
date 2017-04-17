@@ -6,7 +6,7 @@
 <div class="centerform">
 
 <%= form_tag providers_path, :method => 'get' do %>
-
+      
 <p>
 	<%= select  :insurance, params[:insurance], [["AETNA"], ["AETNA BETTER HEALTH MEDICAID FHP/ICP"], ["BCBS PRO"], ["BCM"], ["BEACON HEALTH OPTIONS"], ["BEECH ST"],["CIGNA"],["COMPSYCH"], ["CONVENTRY"], ["HEALTHLINK"], ["HFN"],["HUMANA"], ["MAGELLAN"], ["LAND OF LINCOLN"], ["MEDICARE TRADITIONAL"], ["MHNET"], ["MULTIPLAN"], ["PHCS"], ["SELF PAY"], ["SLIDING SCALE"], ["TRICARE"], ["UNITED HEALTHCARE"]], {}, {id: "mainselection"}  %>
 	<%= text_field_tag :cityzip, params[:cityzip], placeholder: "zip code or city" %>
