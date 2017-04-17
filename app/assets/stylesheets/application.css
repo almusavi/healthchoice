@@ -104,11 +104,8 @@ body {
 .eachprovider {
 	margin: 10px;
 	padding: 10px;
-	/*border-style: solid;
-	border-width: 2px;
-	border-color: black;*/
 	display: flex;
-	background-color: #ffffff
+	background-color: #ffffff;
 }
 .providercard {
 	overflow: auto;
