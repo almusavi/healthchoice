@@ -24,7 +24,7 @@ body {
 }
 
 .map-position {
-	position: fixed; no repeat;
+	position: fixed; 
 	margin: 15px;
 	/*left: 50%;
 	margin-left: 60%;
