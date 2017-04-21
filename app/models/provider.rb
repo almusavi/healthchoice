@@ -4,7 +4,7 @@ class Provider < ApplicationRecord
 
 	def self.search(search)
 		if search != ""
-			providers = self.within(5, :origin => search)	
+			providers = self.within(10, :origin => search)	
 		else
 			self.all
 		end
