@@ -4,15 +4,50 @@
   <script src="https://maps.google.com/maps/api/js?key=AIzaSyAaT_k8ZavcjlWgoadxwXK2QzRVEvoGFzw"
           type="text/javascript"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.3.7/jquery.jscroll.js"></script>
-</head>
 
-<!-- <div class="map-position1"></div>
-    <div id="map" style="width: 100%; height: 300px;"></div>
-</div> -->
+
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+<style>
+.ms-options-wrap > .ms-options > ul label {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    padding: 4px;
+    margin: 1px 0;
+    background-color: #9DCEFF;
+    
+}
+
+.ms-options-wrap > .ms-options > ul li.selected label,
+.ms-options-wrap > .ms-options > ul label:hover {
+    background-color: #003A75;
+    color:#fff;
+}
+</style>
+
+</head>
 
 <div class="indexpage">
 <div>
-<p>filters</p>
+    <select name="multicheckbox[]" multiple="multiple" class="4col formcls">
+        <option value="AK">Alaska</option>
+        <option value="AZ">Arizona</option>
+        <option value="AR">Arkansas</option>
+        
+    </select>
+
+
+
+
+<script>
+$('select[multiple]').multiselect({
+    columns: 4,
+    placeholder: 'Select options'
+});
+</script>
+
+
 </div>
 
 <div class="providercard">
