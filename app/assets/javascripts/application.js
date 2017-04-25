@@ -1,8 +1,16 @@
 $( document ).ready(function() {
-$('#map').jscroll();
+
+$(".locbutton").on("click", function(){
+	$(".loclist").toggle();
+	if($('.loclist').is(':visible') == true) {
+		$(".locbutton").html("-")
+	}
+	if($('.loclist').is(':visible') == false) {
+			$(".locbutton").html("+")
+	    // Code
+	}
+	});
+
 
 });
 
-// $(document).ready(function() {
-//    $('.selectpicker').selectpicker();
-// });

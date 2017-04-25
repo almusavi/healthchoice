@@ -19,6 +19,16 @@ body {
 	background-color: #c4c4c4;
 }
 
+.loclist {
+	display: none;
+}
+.advancedfilters {
+	border-style: solid;
+	border-width: 1px;
+	background-color: "white";
+	padding: 5px;
+	margin:;
+}
 .nobottommargin{
 	margin-bottom: 0;
 }
