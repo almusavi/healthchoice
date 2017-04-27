@@ -22,10 +22,40 @@ body {
 .loclist {
 	display: none;
 }
+
+.credentialslist {
+	display: none;
+}
+
+.languageslist {
+	display: none;
+}
+
+.agespecialtylist {
+	display: none;
+}
+
+.acceptedinsurancelist {
+	display: none;
+}
+
+.specialtyareaslist {
+	display: none;
+}
+
+.treatmentmodalitylist {
+	display: none;
+}
+
+
+
+
+
+
+
 .advancedfilters {
-	border-style: solid;
-	border-width: 1px;
-	background-color: "white";
+	
+	background-color: white;
 	padding: 5px;
 	margin:;
 }
