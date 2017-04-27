@@ -29,23 +29,92 @@
 </head>
 
 <div class="indexpage">
-<div>
-    <select name="multicheckbox[]" multiple="multiple" class="4col formcls">
-        <option value="AK">Alaska</option>
-        <option value="AZ">Arizona</option>
-        <option value="AR">Arkansas</option>
-        
-    </select>
 
+<form method="get" action="/providers/search">
 
+<div class= "advancedfilters">
+        <% locprovider = ["Outpatient Therapy", "Outpatient Psychiatry", "Partial Hospitalization"] %>
+    <h6><button class="locbutton" type="button">+</button> Level of Care Provided</h6>
+    <div class="loclist">
+        <div>
+        <% locprovider.each do |each_loc| %>
+        <div class="checkbox">
+              <label><input type="checkbox" name="locprovider[]" value="<%= each_loc %>"><%= each_loc %></label>
+        </div>
+            <% end %>
+        </div>
+    </div>
 
+    <% wordlist = ["APN", "ATR", "BA", "CAADC", "CADC", "INTERN", "LCPC", "LCSW", "LDN", "LMFT", "LPC", "LSW", "MD", "MSW", "OTHER", "PHD", "PSYD", "RD", "RN"] %>
+    <h6><button class="credentialsbutton" type="button">+</button> Credentials</h6>
+    <div class="credentialslist">
 
-<script>
-$('select[multiple]').multiselect({
-    columns: 4,
-    placeholder: 'Select options'
-});
-</script>
+    <% wordlist.each do |each_cred| %>
+    <div class="checkbox">
+          <label><input type="checkbox" name="credentials[]" value="<%= each_cred %>"><%= each_cred %></label>
+    </div>
+        <% end %>
+
+    </div>
+
+    <% languages = ["ARABIC", "CHINESE", "ENGLISH", "GUJARATI", "HINDI", "LITHUANIAN", "POLISH", "PORTUGUESE", "PUNJABI", "RUSSIAN", "SIGN LANGUAGE", "SPANISH", "SWEDISH", "TAGALOG"]  %>
+    <h6><button class="languagesbutton" type="button">+</button> Languages</h6>
+    <div class="languageslist">
+
+    <% languages.each do |each_language| %>
+    <div class="checkbox">
+          <label><input type="checkbox" name="languages[]" value="<%= each_language %>"><%= each_language %></label>
+    </div>
+        <% end %>
+    </div>
+
+    <% agespecialty = ["0-5", "6-11","12-17", "18-50", "50+"]  %>
+    <h6><button class="agespecialtybutton" type="button">+</button> Age Specialty</h6>
+    <div class = "agespecialtylist">
+
+    <% agespecialty.each do |each_age| %>
+    <div class="checkbox">
+          <label><input type="checkbox" name="agespecialty[]" value="<%= each_age %>"><%= each_age %></label>
+    </div>
+        <% end %>
+    </div>
+
+    <% acceptedinsurance = ["AETNA","AETNA BETTER HEALTH MEDICAID FHP/ICP", "AETNA BETTER HEALTH MMAI","AETNA MEDICARE ADVANTAGE", "BCBS HMO","BCBS MEDICAID FHP/ICP","BCBS MEDICARE ADVANTAGE", "BCBS MEDICARE MMAI", "BCBS PPO" , "BCM","BEACON HEALTH OPTIONS,BEECH ST","CIGNA", "COFINITY","COMPSYCH","CONVENTRY","CONVENTRY MEDICARE ADVANTAGE","COUNTY CARE MEDICAID","FAMILY HEALTH NETWORK MEDICAID","HARMONY MEDICAID PLAN","HARMONY MEDICARE ADVANTAGE", "HEALTHLINK", "HEALTHSMART", "HEALTHSPRINGS MEDICAID FHP/ICP","HEALTHSPRINGS MMAI","HFN","HUMANA","HUMANA MEDICAID FHP/ICP","HUMANA MEDICARE ADVANTAGE","HUMANA MMAI","ILLINICARE MEDICAID FHP/ICP","ILLINICARE MMAI","LAND OF LINCOLN","MAGELLAN","MEDICAID TRADITIONAL","MEDICARE TRADITIONAL","MERIDIAN MEDICAID FHP/ICP","MERIDIAN MMAI","MHNET","MULTIPLAN","OTHER","PHCS","SELF PAY","SLIDING SCALE","TRICARE","UNITED HEALTHCARE","UNITED HEALTHCARE MEDICARE ADVANTAGE"]  %>
+    <h6><button class="acceptedinsurancebutton" type="button">+</button> Accepted Insurance</h6>
+    <div class="acceptedinsurancelist">
+
+    <% acceptedinsurance.each do |each_insurance| %>
+    <div class="checkbox">
+          <label><input type="checkbox" name="acceptedinsurance[]" value="<%= each_insurance %>"><%= each_insurance %></label>
+    </div>
+        <% end %>
+    </div>
+
+    <% specialtyareas = ["ADDICTION", "ADHD", "ADOPTION", "ANGER MANAGEMENT", "ANXIETY", "AUTISM SPECTRUM", "CHRONIC MENTAL ILLNESS", "CHRONIC PAIN", "DEPRESSION", "DUI SERVICES", "EATING DISORDERS", "FIRST RESPONDERS", "GERIATRIC", "GRIEF/LOSS", "IN HOME COUNSELING/THERAPY", "LQBTQ", "MENTAL HEALTH", "MOOD DISORDERS", "NEUROPSYCH", "OCD", "PERINATAL", "PERSONALITY DISORDERS", "RELIGIOUS/SPIRITUAL", "SELF INJURY", "SEXUAL DISORDER", "SUBOXONE", "TRAUMA", "VETERANS"]  %>
+    <h6><button class="specialtyareasbutton" type="button">+</button> Specialty Areas</h6>
+    <div class="specialtyareaslist">
+
+    <% specialtyareas.each do |each_area| %>
+    <div class="checkbox">
+          <label><input type="checkbox" name="specialtyareas[]" value="<%= each_area %>"><%= each_area %></label>
+    </div>
+        <% end %>
+    </div>
+
+    <% treatmentmodality = ["ACT", "CBT", "CLIENT CENTERED", "DBT", "ECLECTIC", "FAMILY SYSTEMS", "GESTALT", "NONE", "PSYCHDYNAMIC", "PSYCHOPHARMACOLOGY", "RAPID RESOLUTION THERAPY", "STRENGTHS BASED THERAPY", "TRAUMA INFORMED"]  %>
+    <h6><button class="treatmentmodalitybutton" type="button">+</button> Treatment Modality</h6>
+    <div class="treatmentmodalitylist">
+
+    <% treatmentmodality.each do |each_treatment| %>
+    <div class="checkbox">
+          <label><input type="checkbox" name="treatmentmodality[]" value="<%= each_treatment %>"><%= each_treatment %></label>
+    </div>
+        <% end %>
+    </div>
+    <input type="hidden" name="search" value=<%= @search %>>
+  <button type="submit">Submit</button>
+
+</form>
 
 
 </div>
@@ -90,14 +159,14 @@ $('select[multiple]').multiselect({
     
 </div>
 
-hello
+
 <div>
 
 
   <script type="text/javascript">
 var locations = <%=raw @locations %>
     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 12,
+      zoom: 10,
       styles: [
     {
         "featureType": "administrative",

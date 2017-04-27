@@ -18,6 +18,22 @@ def index
 	@providers = @providers.paginate(:per_page => 5, :page => params[:page])
 end
 
+def search
+	@locations = []
+	@search = params[:search]
+	@providers = Provider.search(params[:search])
+	@providers = @providers.locsearch(params[:locprovider])
+	@providers = @providers.credentialssearch(params[:credentials])
+	@providers = @providers.languagessearch(params[:languages])
+	@providers = @providers.agespecialtysearch(params[:agespecialty])
+	@providers = @providers.acceptedinsurancesearch(params[:acceptedinsurance])
+	@providers = @providers.specialtyareassearch(params[:specialtyareas])
+	@providers = @providers.treatmentmodalitysearch(params[:treatmentmodality])
+	@providers = @providers.paginate(:per_page => 5, :page => params[:page])	
+	render "index.html.erb"
+end
+
+
 def show
 @provider = Provider.find_by(id: params[:id])
 end

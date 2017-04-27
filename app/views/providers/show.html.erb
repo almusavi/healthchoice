@@ -16,7 +16,7 @@
 		<br>
 		<i class="title"><%= @provider.title %></i>
 		<br>
-		<span><%= @provider.crlphone %></span>
+		<span><%= @provider.crlphonenumber %></span>
 	</div>
 
 </div>
@@ -150,7 +150,7 @@
 </div>
 <div class="qualifications">
     <div class="qualitysubject">Phone</div>
-    <div class="qualities"><%= @provider.crlphone %></div>
+    <div class="qualities"><%= @provider.crlphonenumber %></div>
 </div>
 <div class="qualifications">
     <div class="qualitysubject">Fax</div>
@@ -230,16 +230,6 @@
     <% end %>  
     </div>
 </div>
-<div class="qualifications">
-    <div class="qualitysubject">Treatment Philosophy</div>
-    <div class="qualities">
-    <% unless @provider.treatmentphilosophy.nil? %>
-        <% @provider.treatmentphilosophy.split(";").each do |treatment|%>
-            <%= treatment %>
-            <br>
-        <% end %> 
-    <% end %> 
-    </div>
-</div>
+
 </div>
 

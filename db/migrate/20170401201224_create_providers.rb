@@ -7,13 +7,6 @@ class CreateProviders < ActiveRecord::Migration[5.0]
     	t.string :accountrating
     	t.string :accountphone
     	t.string :accountfax
-    	t.string :billingstreet
-    	t.string :billingaddressline3
-    	t.string :billingcity
-    	t.string :billingzip
-    	t.string :billingstate
-    	t.string :billlatitude
-    	t.string :billlongitude
     	t.string :contactid
     	t.string :locprovided
     	t.string :firstname
@@ -21,9 +14,9 @@ class CreateProviders < ActiveRecord::Migration[5.0]
     	t.string :title
     	t.string :credentials
     	t.string :phone
-    	t.string :crlphone
+    	t.string :crlphonenumber
     	t.string :formerloh
-    	t.string :mailingaddressline1
+    	t.string :mailingaddress
     	t.string :mailingcity
     	t.string :mailingstate
     	t.string :mailingzip
@@ -35,13 +28,13 @@ class CreateProviders < ActiveRecord::Migration[5.0]
     	t.string :languages
     	t.string :patientagebracket
     	t.string :insurancepanels
-    	t.string :specialtyareas
+        t.string :specialtyareas
     	t.string :treatmentmodality
     	t.string :treatmentorientation
-    	t.string :treatmentphilosophy
     	t.string :mailingstreet
     	t.string :accountname
-    	t.string :distance
+        t.string :distance
+    	
       t.timestamps
     end
   end

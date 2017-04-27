@@ -19,6 +19,46 @@ body {
 	background-color: #c4c4c4;
 }
 
+.loclist {
+	display: none;
+}
+
+.credentialslist {
+	display: none;
+}
+
+.languageslist {
+	display: none;
+}
+
+.agespecialtylist {
+	display: none;
+}
+
+.acceptedinsurancelist {
+	display: none;
+}
+
+.specialtyareaslist {
+	display: none;
+}
+
+.treatmentmodalitylist {
+	display: none;
+}
+
+
+
+
+
+
+
+.advancedfilters {
+	
+	background-color: white;
+	padding: 5px;
+	margin:;
+}
 .nobottommargin{
 	margin-bottom: 0;
 }
