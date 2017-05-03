@@ -15,7 +15,7 @@ def index
 	p params
 	p "****************"
 	@locations = []
-	@providers = @providers.paginate(:per_page => 5, :page => params[:page])
+	@providers = @providers.paginate(:per_page => 30, :page => params[:page])
 end
 
 def search
@@ -29,7 +29,7 @@ def search
 	@providers = @providers.acceptedinsurancesearch(params[:acceptedinsurance])
 	@providers = @providers.specialtyareassearch(params[:specialtyareas])
 	@providers = @providers.treatmentmodalitysearch(params[:treatmentmodality])
-	@providers = @providers.paginate(:per_page => 5, :page => params[:page])	
+	@providers = @providers.paginate(:per_page => 30, :page => params[:page])	
 	render "index.html.erb"
 end
 

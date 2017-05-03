@@ -120,8 +120,11 @@
 </div>
 
 <div class="providercard">
-	<p class="searchresults">SEARCH RESULTS FOR: <%= @search %></p>
-	<% @providers.each do |provider| %>
+	<h6 class="searchresults">SEARCH RESULTS FOR: <%= @search %>   
+    </h6>
+    <h5 class="entries"> <%=  page_entries_info(@providers) %> </h5>
+
+	 <% @providers.each do |provider| %>
 		<div class=" eachprovider cardsize">
 			<div class="avatar">
 				<img src="/images/avatar.jpg">

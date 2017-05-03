@@ -1,12 +1,23 @@
 module ProviderHelper
 
 	def latlon (city)
-		url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + city + '&key=AIzaSyAaT_k8ZavcjlWgoadxwXK2QzRVEvoGFzw'
+		url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + city + '&key=AIzaSyCkPs8L-7I6XBYnIRMtp0skiMfqoBdk-rk'
 		citylatlon =[]
 		city = open(url).read
 		city = JSON.parse(city)
+		p "****"
+		p city
+		p "****"
 		city["results"][0]["geometry"]["location"]
 	end
+
+	def page_entries_info(collection)
+      %{Displaying entries %d-%d of %d in total} % [
+        collection.offset + 1,
+        collection.offset + collection.length,
+        collection.total_entries
+      ]
+    end
 
 	def coor_dist(lat1, lon1, lat2, lon2)
 
