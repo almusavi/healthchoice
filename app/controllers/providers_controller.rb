@@ -13,7 +13,7 @@ def index
 	@insurancesearch = params[:insurance]
 	@locations = []
 		def latlon(city)
-		url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + city + '&key=AIzaSyCkPs8L-7I6XBYnIRMtp0skiMfqoBdk-rk'
+		url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + city + '&key=AIzaSyDWGnx38pydVSCIUiGUaMnVRrNmZ_jBnZk'
 		citylatlon =[]
 		city = open(url).read
 		city = JSON.parse(city)
@@ -53,8 +53,8 @@ def index
 # # puts coor_dist(lat1, lon1, lat2, lon2)
 
 # 	def distance(city1, city2)
-# 		url1 = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + city1 + '&key=AIzaSyCkPs8L-7I6XBYnIRMtp0skiMfqoBdk-rk'
-# 		url2 = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + city2 + '&key=AIzaSyCkPs8L-7I6XBYnIRMtp0skiMfqoBdk-rk'
+# 		url1 = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + city1 + '&key=AIzaSyDWGnx38pydVSCIUiGUaMnVRrNmZ_jBnZk'
+# 		url2 = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + city2 + '&key=AIzaSyDWGnx38pydVSCIUiGUaMnVRrNmZ_jBnZk'
 
 # 	end
 # 	@providers.each do |each_provider|
