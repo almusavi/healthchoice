@@ -1,11 +1,4 @@
-module ProviderHelper
-	def page_entries_info(collection)
-      %{Displaying entries %d-%d of %d in total} % [
-        collection.offset + 1,
-        collection.offset + collection.length,
-        collection.total_entries
-      ]
-    end
+module Distance
 
 	def latlon(city)
 		url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + city + '&key=AIzaSyCkPs8L-7I6XBYnIRMtp0skiMfqoBdk-rk'
@@ -49,9 +42,9 @@ end
 
 # puts coor_dist(lat1, lon1, lat2, lon2)
 
-	# def distance(city1, city2)
-	# 	url1 = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + city1 + '&key=AIzaSyCkPs8L-7I6XBYnIRMtp0skiMfqoBdk-rk'
-	# 	url2 = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + city2 + '&key=AIzaSyCkPs8L-7I6XBYnIRMtp0skiMfqoBdk-rk'
+	def distance(city1, city2)
+		url1 = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + city1 + '&key=AIzaSyCkPs8L-7I6XBYnIRMtp0skiMfqoBdk-rk'
+		url2 = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + city2 + '&key=AIzaSyCkPs8L-7I6XBYnIRMtp0skiMfqoBdk-rk'
 
-	# end
+	end
 end

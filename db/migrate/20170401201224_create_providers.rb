@@ -33,7 +33,7 @@ class CreateProviders < ActiveRecord::Migration[5.0]
     	t.string :treatmentorientation
     	t.string :mailingstreet
     	t.string :accountname
-        t.string :distance
+        t.decimal :distance
     	
       t.timestamps
     end

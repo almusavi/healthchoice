@@ -135,8 +135,8 @@
 				</span>
 				<i class="title"><%= provider.title %></i>
 				<p><%= provider.accountname %></p>
-				<span class="fa fa-map-marker"><%= provider.distance %></span>
-				<span class="citystate"> | <%= provider.mailingcity + ", " + provider.mailingstate %></span>
+				<span class="fa fa-map-marker"></span>
+				<span class="citystate"><%= provider.distance.to_s %> | <%= provider.mailingcity.to_s + ", " + provider.mailingstate.to_s %></span>
 				<br>
 				<br>
 				<form action="mailto:<%= provider.email %>" method="post" enctype="text/plain">

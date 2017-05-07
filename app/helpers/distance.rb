@@ -1,12 +1,10 @@
-module ApplicationHelper
+# module Distance
+
 # 	def latlon(city)
 # 		url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + city + '&key=AIzaSyCkPs8L-7I6XBYnIRMtp0skiMfqoBdk-rk'
 # 		citylatlon =[]
 # 		city = open(url).read
 # 		city = JSON.parse(city)
-# 		p "****"
-# 		p city
-# 		p "****"
 # 		city["results"][0]["geometry"]["location"]
 # 	end
 
@@ -46,4 +44,4 @@ module ApplicationHelper
 # 		url2 = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + city2 + '&key=AIzaSyCkPs8L-7I6XBYnIRMtp0skiMfqoBdk-rk'
 
 # 	end
-end
+# end
