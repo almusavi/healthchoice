@@ -1,10 +1,22 @@
 class Provider < ApplicationRecord
-
+	has_many :clicks
 	acts_as_mappable :lat_column_name => :maillatitude, :lng_column_name => :maillongitude
 
 	def self.search(search)
 		if search != ""
 			providers = self.within(10, :origin => search)	
+		else
+			self.all
+		end
+	end
+
+	def fullname
+		"#{firstname} #{lastname}"
+	end
+
+	def self.searchname(name)
+		if name != ""
+			self.where("firstname || ' ' || lastname like :s", :s => "%#{name}")
 		else
 			self.all
 		end
@@ -28,6 +40,7 @@ class Provider < ApplicationRecord
 		end
 		@providers
 	end
+
 
 	def self.locsearch(locsearch)
 		if locsearch != nil 

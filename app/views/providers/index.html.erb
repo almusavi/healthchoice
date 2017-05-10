@@ -112,6 +112,8 @@
         <% end %>
     </div>
     <input type="hidden" name="search" value=<%= @search %>>
+        <input type="hidden" name="insurancesearch" value=<%= @insurancesearch %>>
+
   <button type="submit">Submit</button>
 
 </form>
@@ -139,13 +141,22 @@
 				<span class="citystate"><%= provider.distance.to_s %> | <%= provider.mailingcity.to_s + ", " + provider.mailingstate.to_s %></span>
 				<br>
 				<br>
-				<form action="mailto:<%= provider.email %>" method="post" enctype="text/plain">
-				<input type="image" src="/images/emailicon.png" border="0" alt="Submit">
 
-				<form action="mailto:<%= provider.email %>" method="post" enctype="text/plain">
-				<input type="image" src="/images/phone-outline.png" border="0" alt="Submit">
-				<% @locations << [provider.accountname.strip, provider.maillatitude, provider.maillongitude] %>
-</form>
+                <a href=mailto:<%= provider.email %>><img src="/images/emailicon.png">
+                <% Clicks.create(accountid: provider.accountid, emailorphone: "email", provider_id: provider.id) %>
+
+                </a>
+                <a href=mailto:<%= provider.email %>><img src="/images/phone-outline.png">
+                <% Clicks.create(accountid: provider.accountid, emailorphone: "telephone", provider_id: provider.id) %>
+                </a>
+
+				<!-- <form action="mailto:<%= provider.email %>?&body=Hello" method="post" enctype="text/plain">
+				<input type="image" src="/images/emailicon.png" border="0" alt="Submit"> -->
+				<!-- <form action="mailto:<%= provider.email %>" method="post" enctype="text/plain">
+                <input type="image" src="/images/phone-outline.png" border="0" alt="Submit">
+                </form>
+                </form> -->
+                <% @locations << [provider.accountname.strip, provider.maillatitude, provider.maillongitude] %>
 			</div>
 		</div>
 		<br>
@@ -262,6 +273,13 @@ var locations = <%=raw @locations %>
         ]
     }
 ],
+<% if @searchname %>
+    <% if @providers.count > 0 %>
+        <% @search = @providers.first.mailingzip %>
+    <% else %>
+        <% @search = "60007" %>
+    <% end %>
+<% end %>
 
       center: new google.maps.LatLng(<%= latlon(@search)["lat"] %>, <%= latlon(@search)["lng"] %>),
       mapTypeId: google.maps.MapTypeId.ROADMAP

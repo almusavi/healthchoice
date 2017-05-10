@@ -1,18 +1,21 @@
 class ProvidersController < ApplicationController
 require 'will_paginate/array'
 def index
-	if params[:cityzip] == ""
+	if params[:cityzip] == "" && params[:searchname] == ""
 		@error = "You must enter a location"
 		render "welcome/index"
-	elsif params[:cityzip] != "" && params[:insurance][0] == ""
+	elsif params[:searchname] != "" && params[:insurance][0] == "---"
+		@providers = Provider.searchname(params[:searchname])
+	elsif params[:cityzip] != "" && params[:insurance][0] == "---"
 		@providers = Provider.search(params[:cityzip])
 	elsif params[:cityzip] != "" && params[:insurance][0] != ""
 		@providers = Provider.search(params[:cityzip]).insurancesearch(params[:insurance][0].upcase)			
 	end
+	@searchname = params[:searchname]
 	@search = params[:cityzip]
 	@insurancesearch = params[:insurance]
 	@locations = []
-		def latlon(city)
+	def latlon(city)
 		url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + city + '&key=AIzaSyBUvj9K-mPCf-2F4OiWnL3-SZhmbRN8mTA'
 		citylatlon =[]
 		city = open(url).read
@@ -65,10 +68,6 @@ def index
 # 	end
 	# @providers = @providers.sort_by{|p| p.distance}
 	@providers = @providers.order("lastname")
-
-	@providers.each do |each|
-		p each.distance
-	end
 	@providers = @providers.order('distance asc').paginate(:per_page => 30, :page => params[:page])
 end
 
@@ -76,6 +75,8 @@ def search
 	@locations = []
 	@search = params[:search]
 	@providers = Provider.search(params[:search])
+	@providers = Provider.insurancesearch(params[:insurancesearch])
+
 	@providers = @providers.locsearch(params[:locprovider])
 	@providers = @providers.credentialssearch(params[:credentials])
 	@providers = @providers.languagessearch(params[:languages])
