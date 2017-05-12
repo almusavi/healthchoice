@@ -9,6 +9,9 @@ def index
 	elsif params[:cityzip] != "" && params[:insurance][0] == "---"
 		@providers = Provider.search(params[:cityzip])
 	elsif params[:cityzip] != "" && params[:insurance][0] != ""
+		p "***************"
+		p params
+		p "***************"
 		@providers = Provider.search(params[:cityzip]).insurancesearch(params[:insurance][0].upcase)			
 	end
 	@searchname = params[:searchname]
@@ -74,9 +77,15 @@ end
 def search
 	@locations = []
 	@search = params[:search]
+	@insurancesearch = params[:insurancesearch].strip
+	p "*********"
+	p params
+	p "*********"
+	@searchname = params[:searchname]
 	@providers = Provider.search(params[:search])
-	@providers = Provider.insurancesearch(params[:insurancesearch])
-
+	
+	@providers = @providers.insurancesearch(params[:insurancesearch])
+	@providers = @providers.insurancesearch(params[:insurancesearch][0].upcase)
 	@providers = @providers.locsearch(params[:locprovider])
 	@providers = @providers.credentialssearch(params[:credentials])
 	@providers = @providers.languagessearch(params[:languages])
@@ -86,6 +95,14 @@ def search
 	@providers = @providers.treatmentmodalitysearch(params[:treatmentmodality])
 	@providers = @providers.paginate(:per_page => 30, :page => params[:page])	
 	render "index.html.erb"
+end
+
+def phonenumber
+	@provider = Provider.find(params{:id})
+	if request.xhr?
+		@provider.clrphonenumber
+	end
+
 end
 
 

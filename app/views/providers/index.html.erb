@@ -26,6 +26,8 @@
 }
 </style>
 
+
+
 </head>
 
 <div class="indexpage">
@@ -112,7 +114,8 @@
         <% end %>
     </div>
     <input type="hidden" name="search" value=<%= @search %>>
-        <input type="hidden" name="insurancesearch" value=<%= @insurancesearch %>>
+    <input type="hidden" name="insurancesearch" value=<%= @insurancesearch[0] %>>
+    <input type="hidden" name="searchname" value=<%= @searchname %>>
 
   <button type="submit">Submit</button>
 
@@ -127,6 +130,7 @@
     <h5 class="entries"> <%=  page_entries_info(@providers) %> </h5>
 
 	 <% @providers.each do |provider| %>
+     
 		<div class=" eachprovider cardsize">
 			<div class="avatar">
 				<img src="/images/avatar.jpg">
@@ -145,22 +149,30 @@
                 <a href=mailto:<%= provider.email %>><img src="/images/emailicon.png">
                 <% Clicks.create(accountid: provider.accountid, emailorphone: "email", provider_id: provider.id) %>
 
+              <!--   <form class="phonenumber" method "GET" action= "/providers/phonenumber">
+        <input type="hidden" name="id" value=<%= provider.id %>>
+                <img src="/images/phone-outline.png"> 
+                </form> -->
+
                 </a>
-                <a href=mailto:<%= provider.email %>><img src="/images/phone-outline.png">
-                <% Clicks.create(accountid: provider.accountid, emailorphone: "telephone", provider_id: provider.id) %>
+                <a class="phonenumber"> <img src="/images/phone-outline.png">
+            
                 </a>
 
-				<!-- <form action="mailto:<%= provider.email %>?&body=Hello" method="post" enctype="text/plain">
-				<input type="image" src="/images/emailicon.png" border="0" alt="Submit"> -->
-				<!-- <form action="mailto:<%= provider.email %>" method="post" enctype="text/plain">
-                <input type="image" src="/images/phone-outline.png" border="0" alt="Submit">
-                </form>
-                </form> -->
+                
+
+                
                 <% @locations << [provider.accountname.strip, provider.maillatitude, provider.maillongitude] %>
-			</div>
-		</div>
-		<br>
-	<% end %>
+            </div>
+        </div>
+        <br>
+    <% end %>
+         <!-- <script>
+    $(".phonenumber").on("click", function(){
+        confirm("The Phone Number is" + phonenumber);
+    })
+</script> -->
+
 	<span class = "will_paginate"> <%= will_paginate @providers %> </span>
 	<br>
 </div>

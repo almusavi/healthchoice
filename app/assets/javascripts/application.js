@@ -77,5 +77,20 @@ $(".treatmentmodalitybutton").on("click", function(){
 	}
 	});
 
+// $('.phonenumber').on("click", function(e){
+// 	e.preventDefault();
+// 	var $link = $(event.target)
+// 	var url = $(event.target).attr('action')
+// 	var type = "Get"
+
+// 	$.ajax({
+// 		url: url,
+// 		contect: this
+// 	})
+// 	.done(function(response){
+// 		confirm("The Phone Number is" + response);
+// 	})
+})
+
 });
 

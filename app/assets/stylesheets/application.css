@@ -7,6 +7,10 @@
 	background-image: url("../images/landingbg.jpg");
 }
 
+.whitetext {
+	color: white;
+	font-family: "poppins";
+}
 .cardsize {
 	width: 100%;
 	margin: 25px;
@@ -230,14 +234,16 @@ height: 100px;
  	padding: 25px;
  }
 
-
+/*.padding {
+	margin-top: 1px;
+}*/
 
 #mainselection {
    -webkit-appearance: button;
-   -webkit-border-radius: 2px;
-   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-   -webkit-padding-end: 15px;
-   -webkit-padding-start: 2px;
+   -webkit-border-radius: 0px;
+   -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+   -webkit-padding-end: 0px;
+   -webkit-padding-start: 10px;
    -webkit-user-select: none;
    background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
    background-position: 97% center;
@@ -250,6 +256,7 @@ height: 100px;
    white-space: nowrap;
    width: 300px;
    height: 26px;
+  
    font-family: "poppins";
    background-color: #ffffff;
 }
