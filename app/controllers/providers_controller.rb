@@ -82,10 +82,8 @@ def search
 	p params
 	p "*********"
 	@searchname = params[:searchname]
-	@providers = Provider.search(params[:search])
-	if @insurancesearch != "-"
-		@providers = @providers.insurancesearch(params[:insurancesearch][0].upcase)
-	end
+	@providers = Provider.search(params[:search]).insurancesearch(params[:insurancesearch].upcase)
+	# @providers = @providers.insurancesearch(params[:insurancesearch][0].upcase)
 	@providers = @providers.locsearch(params[:locprovider])
 	@providers = @providers.credentialssearch(params[:credentials])
 	@providers = @providers.languagessearch(params[:languages])
@@ -93,6 +91,7 @@ def search
 	@providers = @providers.acceptedinsurancesearch(params[:acceptedinsurance])
 	@providers = @providers.specialtyareassearch(params[:specialtyareas])
 	@providers = @providers.treatmentmodalitysearch(params[:treatmentmodality])
+	@providers = @providers.order("lastname")
 	@providers = @providers.paginate(:per_page => 30, :page => params[:page])	
 	render "index.html.erb"
 end
