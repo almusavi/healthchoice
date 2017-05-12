@@ -90,7 +90,7 @@ $(".treatmentmodalitybutton").on("click", function(){
 // 	.done(function(response){
 // 		confirm("The Phone Number is" + response);
 // 	})
-})
+// })
 
 });
 

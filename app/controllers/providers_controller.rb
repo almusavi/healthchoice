@@ -83,9 +83,9 @@ def search
 	p "*********"
 	@searchname = params[:searchname]
 	@providers = Provider.search(params[:search])
-	
-	@providers = @providers.insurancesearch(params[:insurancesearch])
-	@providers = @providers.insurancesearch(params[:insurancesearch][0].upcase)
+	if @insurancesearch != "-"
+		@providers = @providers.insurancesearch(params[:insurancesearch][0].upcase)
+	end
 	@providers = @providers.locsearch(params[:locprovider])
 	@providers = @providers.credentialssearch(params[:credentials])
 	@providers = @providers.languagessearch(params[:languages])
