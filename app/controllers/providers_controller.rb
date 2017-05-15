@@ -4,8 +4,8 @@ def index
 	if params[:cityzip] == "" && params[:searchname] == ""
 		@error = "You must enter a location"
 		render "welcome/index"
-	elsif params[:searchname] != "" && params[:insurance][0] == "---"
-		@providers = Provider.searchname(params[:searchname])
+	elsif params[:searchname] != "" 
+		@providers = Provider.searchname(params[:searchname].capitalize)
 	elsif params[:cityzip] != "" && params[:insurance][0] == "---"
 		@providers = Provider.search(params[:cityzip])
 	elsif params[:cityzip] != "" && params[:insurance][0] != ""

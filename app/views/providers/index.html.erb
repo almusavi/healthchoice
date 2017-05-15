@@ -35,7 +35,7 @@
 <form method="get" action="/providers/search">
 
 <div class= "advancedfilters">
-        <% locprovider = ["Outpatient Therapy", "Outpatient Psychiatry", "Partial Hospitalization"] %>
+        <% locprovider = ["Outpatient Therapy", "Outpatient Psychiatry"] %>
     <h6><button class="locbutton" type="button">+</button> Level of Care Provided</h6>
     <div class="loclist">
         <div>
@@ -146,7 +146,7 @@
 				<br>
 				<br>
 
-                <a href=mailto:<%= provider.email %> > <img src="/images/emailicon.png">
+                <a href=mailto:<%= provider.email %>?cc="info@referralgps.com" > <img src="/images/emailicon.png">
                
 
               <!--   <form class="phonenumber" method "GET" action= "/providers/phonenumber">
