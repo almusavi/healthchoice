@@ -27,7 +27,6 @@ def index
 		city["results"][0]["geometry"]["location"]
 	end
 
-
 # 	def coor_dist(lat1, lon1, lat2, lon2)
 
 # 	  earthRadius = 6371 # Earth's radius in KM
