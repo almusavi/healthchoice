@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-# root 'welcome#index'
+root 'welcome#index'
 get '/welcome/index', to: 'welcome#index'
 get '/providers/search', to: 'providers#search'
 get '/providers/phonenumber', to: 'providers#phonenumber'
