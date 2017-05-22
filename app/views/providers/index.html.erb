@@ -127,6 +127,14 @@
 <div class="providercard">
 	<h6 class="searchresults">SEARCH RESULTS FOR: <%= @search %>   
     </h6>
+    <span class="filters">Filters:</span>
+    <% @filters.each_with_index do |each_filter, index| %>
+        <span class="filters"><%=each_filter%></span>
+        <% if index != @filters.length-1 %>
+            <span>,</span>
+        <% end %>
+
+    <% end %>
     <h5 class="entries"> <%=  page_entries_info(@providers) %> </h5>
 
 	 <% @providers.each do |provider| %>
@@ -146,18 +154,16 @@
 				<br>
 				<br>
 
-                <a href=mailto:<%= provider.email %>?cc="info@referralgps.com" > <img src="/images/emailicon.png">
+                <form method="get" action="/providers/<%= provider.id %>">
+              <button type="submit">Show Profile</button>
+            </form>
+            <form method="get" action="/contacts/new">
+            <input type="hidden" name="provider" value="<%= provider.id %>">
+              <button type="submit">Contact</button>
+            </form>
                
-
-              <!--   <form class="phonenumber" method "GET" action= "/providers/phonenumber">
-        <input type="hidden" name="id" value=<%= provider.id %>>
-                <img src="/images/phone-outline.png"> 
-                </form> -->
-
                 </a>
-                <a class="phonenumber"> <img src="/images/phone-outline.png">
-            
-                </a>
+                
 
                 
 

@@ -18,6 +18,13 @@ def index
 	@search = params[:cityzip]
 	@insurancesearch = params[:insurance]
 	@locations = []
+	@filters = []
+	if params[:searchname] != ""
+		@filters << params[:searchname]
+	end
+	if params[:insurance][0] != ""
+		@filters << params[:insurance][0]
+	end
 	def latlon(city)
 		url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + city + '&key=AIzaSyBUvj9K-mPCf-2F4OiWnL3-SZhmbRN8mTA'
 		citylatlon =[]
@@ -77,6 +84,7 @@ def search
 	@locations = []
 	@search = params[:search]
 	@insurancesearch = params[:insurancesearch].strip
+	@filters = []
 	p "*********"
 	p params
 	p "*********"
@@ -92,6 +100,57 @@ def search
 	@providers = @providers.treatmentmodalitysearch(params[:treatmentmodality])
 	@providers = @providers.order("lastname")
 	@providers = @providers.paginate(:per_page => 30, :page => params[:page])	
+	if params[:searchname] != ""
+		@filters << params[:searchname]
+	end
+	if params[:insurancesearch][0] != nil
+		@filters << params[:insurancesearch]
+	end
+
+	if params[:locprovider] != nil
+		params[:locprovider].each do |each_provider|
+			@filters << each_provider
+		end
+	end
+
+	if params[:credentials] != nil
+		params[:credentials].each do |each|
+			@filters << each
+		end
+	end
+
+	if params[:languages] != nil
+		params[:languages].each do |each|
+			@filters << each
+		end
+	end
+
+	if params[:agespecialty] != nil
+		params[:agespecialty].each do |each|
+			@filters << each
+		end
+	end
+
+	if params[:acceptedinsurance] != nil
+		params[:acceptedinsurance].each do |each|
+			@filters << each
+		end
+	end
+
+	if params[:specialtyareas] != nil
+		params[:specialtyareas].each do |each|
+			@filters << each
+		end
+	end
+
+	if params[:treatmentmodality] != nil
+		params[:treatmentmodality].each do |each|
+			@filters << each
+		end
+	end
+
+
+	
 	render "index.html.erb"
 end
 
@@ -108,5 +167,9 @@ def show
 @provider = Provider.find_by(id: params[:id])
 end
 
+def contact
+	p params
+	@provider = Provider.find_by(id: params[:provider])
+end
 
 end

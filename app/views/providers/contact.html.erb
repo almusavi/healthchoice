@@ -1,0 +1,21 @@
+<div class="poppins"><h1>Appointment Request</h1>
+
+<p>To request first time appointment, please complete the form below.  Staff from this office will be in touch as soon as possible to find a time that will work for schedules.
+<ul>
+<li>Name of Referring Provider</li>
+<li>Best number to contact referring provider</li>
+<li>Best time to call referring provider</li>
+<li>Best e-mail to contact referring provider</li>
+</ul>
+During the initial conversation, staff from this office will gather brief clinical and demographic information, including anticipated discharge date and insurance information.</p> 
+</div>
+<form action="mailto:<%= @provider.email %>" method="post" enctype="text/plain">
+Name:<br>
+<input type="text" name="name"><br>
+E-mail:<br>
+<input type="text" name="mail"><br>
+Comment:<br>
+<input type="text" name="comment" size="50"><br><br>
+<input type="submit" value="Send">
+<input type="reset" value="Reset">
+</form>

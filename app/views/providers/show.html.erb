@@ -158,7 +158,10 @@
 </div>
 <div class="qualifications">
     <div class="qualitysubject">Website</div>
-    <div class="qualities"><%= @provider.website %></div>
+
+    <div class="qualities">
+        <a href="<%= @provider.website %>"><%= @provider.website %></a>
+    </div>
 </div>
 <div class="qualifications">
     <div class="qualitysubject">Level of Care Provided</div>

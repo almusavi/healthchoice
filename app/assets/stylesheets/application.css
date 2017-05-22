@@ -15,12 +15,22 @@
 	width: 100%;
 	margin: 25px;
 }
+
+form { display: inline; }
+
 html,
 body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
 	background-color: #c4c4c4;
+}
+
+.filters {
+	font-family: "poppins";
+	padding-left: 10px;
+	font-size: 15px;
+
 }
 
 .loclist {
@@ -161,6 +171,17 @@ body {
 	font-size: 25px;
 }
 
+div.form-actions { width: 100%; text-align: center;}
+.form-control { width: 150px; }
+
+
+.center{
+  width: 4em;
+  float: left;
+  text-align: right;
+  margin-right: 0.5em;
+  display: block
+}
 
 .entries {
 	font-family: "poppins";
@@ -194,6 +215,11 @@ body {
 }
 .avatar {
 	margin-right: 30px;
+}
+.poppins {
+	font-family: "poppins";
+	padding: 15px;
+
 }
 footer{
 	background-color: black;

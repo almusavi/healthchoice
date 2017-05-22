@@ -1,0 +1,31 @@
+<div class="poppins"><h1>Appointment Request</h1>
+
+<p>To request first time appointment, please complete the form below.  Staff from this office will be in touch as soon as possible to find a time that will work for schedules.
+<ul>
+<li>Name of Referring Provider</li>
+<li>Best number to contact referring provider</li>
+<li>Best time to call referring provider</li>
+<li>Best e-mail to contact referring provider</li>
+</ul>
+During the initial conversation, staff from this office will gather brief clinical and demographic information, including anticipated discharge date and insurance information.</p> 
+</div>
+<div align="center">
+  <%= simple_form_for @contact do |f| %>
+    <%= f.input :name,:required => true%>
+    
+    <%= f.input :email, :required => true %>
+
+    <%= f.input :message, :as => :text, :required => true%>
+    <div class= "hidden">
+    <%= f.input :provideremail, :input_html => { :value => @provider.email } %>
+    <input type="hidden" name="provider" value="<%= @provider.id %>">
+<%= f.input :nickname, :hint => 'Leave this field blank!' %>
+    </div>
+
+    <div>
+      </br>
+      <%= f.button :submit, 'Send message', :class=> "btn btn-primary" %>
+    </div>
+  <% end %>
+  <br>
+</div>
