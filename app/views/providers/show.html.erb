@@ -152,6 +152,11 @@
     <div class="qualitysubject">Phone</div>
     <div class="qualities"><%= @provider.crlphonenumber %></div>
 </div>
+<div class="qualifications" >
+    <div class="qualitysubject">Address</div> 
+    <div class="qualities"><%= @provider.mailingaddress %></div>
+    <div class="qualities">, <%= @provider.mailingcity %>, <%= @provider.mailingstate %> <%= @provider.mailingzip %></div>
+</div>
 <div class="qualifications">
     <div class="qualitysubject">Fax</div>
     <div class="qualities"><%= @provider.accountfax %></div>
