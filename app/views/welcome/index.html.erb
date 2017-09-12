@@ -1,26 +1,24 @@
-<div class ="homepageheight">
-<body class="homepage">
-	
-<p class="homepageheading">Your #1 online resource for Behavioral Health Care Provider Referrals</p>
+<div class="homepageheight">
 
-<div class="centerform">
-
-<%= form_tag providers_path, :method => 'get' do %>
-      
-<p>
-	<%= select  :insurance, params[:insurance], [["AETNA"], ["AETNA BETTER HEALTH MEDICAID FHP/ICP"], ["AETNA BETTER HEALTH MMAI"], ["AETNA MEDICARE ADVANTAGE"], ["BCBS HMO"], ["BCBS MEDICAID FHP/ICP"], ["BCBS MEDICARE ADVANTAGE"], ["BCBS MEDICARE MMAI"], ["BCBS PPO"], ["BCM"], ["BEACON HEALTH OPTIONS"], ["BEECH ST"],["CIGNA"], ["COFINITY"], ["COMPSYCH"], ["CONVENTRY"], ["CONVENTRY MEDICARE ADVANTGE"], ["COUNTY CARE MEDICAID"], ["FAMILY HEALTH NETWORK MEDICAID"], ["HARMONY MEDICAID PLAN"], ["HARMONY MEDICARE ADVANTAGE"], ["HEALTHLINK"], ["HEALTHSMART"], ["HEALTHSPRINGS MEDICAID FHP/ICP"], ["HEALTHSPRINGS MMAI"], ["HFN"], ["HUMANA"], ["HUMANA MEDICAID FHP/ICP"], ["HUMANA MEDICARE ADVANTAGE"], ["HUMANA MMAI"], ["ILLINICARE MEDICAID FHP/ICP"], ["ILLINICARE MMAI"], ["LAND OF LINCOLN"], ["LAND OF LINCOLN"], ["MAGELLAN"], ["MEDICAID TRADITIONAL"], ["MEDICARE TRADITIONAL"], ["MERIDIAN MEDICAID FHP/ICP"], ["MERIDIAN MMAI"], ["MHNET"], ["MULTIPLAN"], ["OTHER"], ["PHCS"], ["SELF PAY"], ["SLIDING SCALE"], ["TRICARE"], ["UNITED HEALTHCARE"], ["UNITED HEALTHCARE MEDICARE ADVANTAGE"]], {}, {id: "mainselection"}  %>
-	<%= text_field_tag :cityzip, params[:cityzip], placeholder: "zip code or city" %>
-	<span style="color:white;" class="whitetext">or by</span>
-	<%= text_field_tag :searchname, params[:searchname], placeholder: "provider name" %>
-
-	<%= button_tag type: 'submit', :name => nil, class: "button my-button", id: "register-button" do%>
-		<i class = "fa fa-search" aria_ hidden="true"></i>
-	<% end %>
-</p>
-<% end %>
-<% if @error %>
-<p style="color: white;"> <%= @error %></p>
-<% end %>
-</div>
-</body>
+    <body class="homepage">
+        <p class="homepageheading">Your #1 online resource for Behavioral Health Care Provider Referrals</p>
+        <div class="centerform">
+            <%= form_tag providers_path, :method => 'get' do %>
+                <p>
+                    <%= select  :insurance, params[:insurance], [["AETNA"], ["AETNA BETTER HEALTH MEDICAID FHP/ICP"], ["AETNA BETTER HEALTH MMAI"], ["AETNA MEDICARE ADVANTAGE"], ["BCBS HMO"], ["BCBS MEDICAID FHP/ICP"], ["BCBS MEDICARE ADVANTAGE"], ["BCBS MEDICARE MMAI"], ["BCBS PPO"], ["BCM"], ["BEACON HEALTH OPTIONS"], ["BEECH ST"],["CIGNA"], ["COFINITY"], ["COMPSYCH"], ["CONVENTRY"], ["CONVENTRY MEDICARE ADVANTGE"], ["COUNTY CARE MEDICAID"], ["FAMILY HEALTH NETWORK MEDICAID"], ["HARMONY MEDICAID PLAN"], ["HARMONY MEDICARE ADVANTAGE"], ["HEALTHLINK"], ["HEALTHSMART"], ["HEALTHSPRINGS MEDICAID FHP/ICP"], ["HEALTHSPRINGS MMAI"], ["HFN"], ["HUMANA"], ["HUMANA MEDICAID FHP/ICP"], ["HUMANA MEDICARE ADVANTAGE"], ["HUMANA MMAI"], ["ILLINICARE MEDICAID FHP/ICP"], ["ILLINICARE MMAI"], ["LAND OF LINCOLN"], ["LAND OF LINCOLN"], ["MAGELLAN"], ["MEDICAID TRADITIONAL"], ["MEDICARE TRADITIONAL"], ["MERIDIAN MEDICAID FHP/ICP"], ["MERIDIAN MMAI"], ["MHNET"], ["MULTIPLAN"], ["OTHER"], ["PHCS"], ["SELF PAY"], ["SLIDING SCALE"], ["TRICARE"], ["UNITED HEALTHCARE"], ["UNITED HEALTHCARE MEDICARE ADVANTAGE"]], {}, {id: "mainselection"}  %>
+                        <%= text_field_tag :cityzip, params[:cityzip], placeholder: "zip code or city" %>
+                            <span style="color:white;" class="whitetext">or by</span>
+                            <%= text_field_tag :searchname, params[:searchname], placeholder: "provider name" %>
+                                <%= button_tag type: 'submit', :name => nil, class: "button my-button", id: "register-button" do%>
+                                    <i class="fa fa-search" aria_ hidden="true"></i>
+                                    <% end %>
+                </p>
+                <% end %>
+                    <% if @error %>
+                        <p style="color: white;">
+                            <%= @error %>
+                        </p>
+                        <% end %>
+        </div>
+    </body>
 </div>

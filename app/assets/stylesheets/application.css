@@ -2,6 +2,7 @@
 
 .homepage {
 	background-image: url("../images/landingbg.jpg");
+	background-repeat: no-repeat;
 }
 
 .whitetext {
