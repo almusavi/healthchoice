@@ -221,8 +221,14 @@ div.form-actions { width: 100%; text-align: center;}
 footer{
 	background-color: black;
 	padding: 25px;
-	display: flex;
-	justify-content: center;
+/*	display: flex;
+*/	justify-content: center;
+	display: block;
+            position: running(footer);
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 5;
 }
 
 .will_paginate {
