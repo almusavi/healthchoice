@@ -1,24 +1,9 @@
-# README
+# Healthchoice
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An MVP to look up behavioral health care physicians in the Chicagoland area based on certain criteria such as Insurance, Location, Certifications, etc...
 
-Things you may want to cover:
+The information is imported through csv file and then parsed onto a psql database.
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
